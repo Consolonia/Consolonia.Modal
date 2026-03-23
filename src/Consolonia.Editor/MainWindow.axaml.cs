@@ -18,13 +18,13 @@ namespace Consolonia.Editor
 {
     public partial class MainWindow : Window
     {
-        private readonly TextEditor _textEditor;
-        private readonly TextMate.Installation _textMateInstallation;
         private readonly int _currentTheme = (int)ThemeName.VisualStudioDark;
-        private FoldingManager? _foldingManager;
         private readonly RegistryOptions _registryOptions;
         private readonly TextBlock _statusTextBlock;
         private readonly ComboBox _syntaxModeCombo;
+        private readonly TextEditor _textEditor;
+        private readonly TextMate.Installation _textMateInstallation;
+        private FoldingManager? _foldingManager;
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
         public MainWindow()
