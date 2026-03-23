@@ -9,7 +9,7 @@ namespace Consolonia.Editor.ViewModels;
 
 public class MainWindowViewModel(TextMate.Installation textMateInstallation, RegistryOptions registryOptions) : ReactiveObject
 {
-    public ObservableCollection<ThemeViewModel> AllThemes { get; set; } = [];
+    public ObservableCollection<ThemeViewModel> AllThemes { get; } = [];
     private ThemeViewModel? _selectedTheme;
 
     public ThemeViewModel SelectedTheme
