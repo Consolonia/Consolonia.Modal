@@ -2,22 +2,23 @@
 
 using Avalonia;
 
-namespace Consolonia.Editor;
-
-public static class Program
+namespace Consolonia.Editor
 {
-    private static void Main(string[] args)
+    public static class Program
     {
-        BuildAvaloniaApp()
-            .StartWithConsoleLifetime(args);
-    }
+        private static void Main(string[] args)
+        {
+            BuildAvaloniaApp()
+                .StartWithConsoleLifetime(args);
+        }
 
-    public static AppBuilder BuildAvaloniaApp()
-    {
-        return AppBuilder.Configure<App>()
-            .UseConsolonia()
-            .UseAutoDetectedConsole()
-            //.WithDeveloperTools()
-            .LogToException();
+        public static AppBuilder BuildAvaloniaApp()
+        {
+            return AppBuilder.Configure<App>()
+                .UseConsolonia()
+                .UseAutoDetectedConsole()
+                //.WithDeveloperTools()
+                .LogToException();
+        }
     }
 }
