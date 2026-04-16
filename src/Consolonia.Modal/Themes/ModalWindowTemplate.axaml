@@ -1,11 +1,11 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:dialog="clr-namespace:Consolonia.Modal"
+        xmlns:modal="clr-namespace:Consolonia.Modal"
         xmlns:brushes="https://github.com/consolonia">
     <Styles.Resources>
-        <Thickness x:Key="ConsoloniaDialogWindowBorderMargin">1,0</Thickness>
-        <ControlTheme x:Key="{x:Type dialog:DialogWindow}"
-                      TargetType="dialog:DialogWindow">
+        <Thickness x:Key="ConsoloniaModalWindowBorderMargin">1,0</Thickness>
+        <ControlTheme x:Key="{x:Type modal:ModalWindow}"
+                      TargetType="modal:ModalWindow">
             <Setter Property="Background"
                     Value="{DynamicResource ThemeBackgroundBrush}" />
             <Setter Property="Foreground"
@@ -29,7 +29,7 @@
                                 x:Name="PART_SHADOW">
                             <Border BorderBrush="{DynamicResource ThemeTransparentBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                    Margin="{DynamicResource ConsoloniaDialogWindowBorderMargin}">
+                                    Margin="{DynamicResource ConsoloniaModalWindowBorderMargin}">
                                 <Control
                                     Width="{Binding Path=ContentSize.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                     Height="{Binding Path=ContentSize.Height, RelativeSource={RelativeSource TemplatedParent}}"
@@ -39,12 +39,12 @@
                         </Border>
 
                         <!--Panel-->
-                        <Panel Background="{DynamicResource DialogWindowOuterBorderBackgroundBrush}"
+                        <Panel Background="{DynamicResource ModalWindowOuterBorderBackgroundBrush}"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center">
                             <Border BorderThickness="{TemplateBinding BorderThickness}"
-                                    Margin="{DynamicResource ConsoloniaDialogWindowBorderMargin}"
-                                    Classes="DialogWindowBorder"
+                                    Margin="{DynamicResource ConsoloniaModalWindowBorderMargin}"
+                                    Classes="ModalWindowBorder"
                                     BorderBrush="{TemplateBinding BorderBrush}">
                                 <Control
                                     Width="{Binding Path=ContentSize.Width, RelativeSource={RelativeSource TemplatedParent}}"
@@ -53,7 +53,7 @@
                                     Margin="{TemplateBinding Padding}" />
                             </Border>
                             
-                            <dialog:DialogWindowHeader Title="{TemplateBinding Title}"
+                            <modal:ModalWindowHeader Title="{TemplateBinding Title}"
                                                        Icon="{TemplateBinding Icon}"
                                                        IsCloseButtonVisible="{TemplateBinding IsCloseButtonVisible}"
                                                        BorderBrush="{TemplateBinding BorderBrush}"
@@ -64,7 +64,7 @@
                         <!--Content-->
                         <Panel Margin="2,1,2,1">
                                 <ContentPresenter Name="PART_ContentPresenter"
-                                                  Margin="{DynamicResource ConsoloniaDialogWindowBorderMargin}"
+                                                  Margin="{DynamicResource ConsoloniaModalWindowBorderMargin}"
                                                   Padding="{TemplateBinding Padding}"
                                                   BorderThickness="{TemplateBinding BorderThickness}"
                                                   ContentTemplate="{TemplateBinding ContentTemplate}"

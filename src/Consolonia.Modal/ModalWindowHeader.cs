@@ -3,10 +3,10 @@ using Avalonia.Controls.Primitives;
 
 namespace Consolonia.Modal
 {
-    public class DialogWindowHeader : TemplatedControl
+    public class ModalWindowHeader : TemplatedControl
     {
         public static readonly StyledProperty<string> TitleProperty =
-            DialogWindow.TitleProperty.AddOwner<DialogWindowHeader>();
+            ModalWindow.TitleProperty.AddOwner<ModalWindowHeader>();
 
         public string Title
         {
@@ -15,7 +15,7 @@ namespace Consolonia.Modal
         }
 
         public static readonly StyledProperty<object> IconProperty =
-            DialogWindow.IconProperty.AddOwner<DialogWindowHeader>();
+            ModalWindow.IconProperty.AddOwner<ModalWindowHeader>();
 
         public object Icon
         {
@@ -24,7 +24,7 @@ namespace Consolonia.Modal
         }
 
         public static readonly StyledProperty<bool> IsCloseButtonVisibleProperty =
-            DialogWindow.IsCloseButtonVisibleProperty.AddOwner<DialogWindowHeader>();
+            ModalWindow.IsCloseButtonVisibleProperty.AddOwner<ModalWindowHeader>();
 
         public bool IsCloseButtonVisible
         {

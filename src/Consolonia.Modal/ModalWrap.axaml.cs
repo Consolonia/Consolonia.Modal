@@ -12,12 +12,12 @@ namespace Consolonia.Modal
     [SuppressMessage("Usage", "PartialTypeWithSinglePart",
         Justification = "Partial class required for XAML code generation.")]
     // ReSharper disable once PartialTypeWithSinglePart
-    public partial class DialogWrap : UserControl
+    public partial class ModalWrap : UserControl
     {
         public readonly ContentPresenter FoundContentPresenter;
         private IDisposable _disposable;
 
-        public DialogWrap()
+        public ModalWrap()
         {
             InitializeComponent();
             FoundContentPresenter = this.FindNameScope()?.Find<ContentPresenter>("ContentPresenter");
@@ -39,8 +39,8 @@ namespace Consolonia.Modal
         }
 
         /// <summary>
-        ///     Focused element when new dialog shown
-        ///     This is focus to restore when dialog closed
+        ///     Focused element when new modal shown
+        ///     This is focus to restore when modal closed
         /// </summary>
         internal IInputElement HadFocusOn { get; set; }
 
@@ -55,17 +55,17 @@ namespace Consolonia.Modal
             AvaloniaXamlLoader.Load(this);
         }
 
-        public void SetContent(DialogWindow dialogWindow)
+        public void SetContent(ModalWindow modalWindow)
         {
-            FoundContentPresenter.Content = dialogWindow;
+            FoundContentPresenter.Content = modalWindow;
         }
 
         // ReSharper disable once UnusedMember.Local Example of usage for further (when mouse support introduced for example)
-#pragma warning disable IDE0051
-        private void CloseDialog()
-#pragma warning restore IDE0051
+        #pragma warning disable IDE0051
+        private void CloseModal()
+        #pragma warning restore IDE0051
         {
-            ((DialogWindow)FoundContentPresenter!.Content!)!.CloseDialog();
+            ((ModalWindow)FoundContentPresenter!.Content!)!.CloseModal();
         }
     }
 }

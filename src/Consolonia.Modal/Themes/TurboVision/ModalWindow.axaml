@@ -1,20 +1,20 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:dialog="clr-namespace:Consolonia.Modal"
+        xmlns:modal="clr-namespace:Consolonia.Modal"
         xmlns:brushes="https://github.com/consolonia">
-    <StyleInclude Source="avares://Consolonia.Modal/Themes/DialogWindowTemplate.axaml" />
+    <StyleInclude Source="avares://Consolonia.Modal/Themes/ModalWindowTemplate.axaml" />
     <Styles.Resources>
         <ResourceDictionary>
-            <StaticResource x:Key="DialogWindowOuterBorderBackgroundBrush" ResourceKey="ThemeBackgroundBrush"/>
-            <ControlTheme x:Key="{x:Type dialog:DialogWindowHeader}"
-                          TargetType="dialog:DialogWindowHeader">
+            <StaticResource x:Key="ModalWindowOuterBorderBackgroundBrush" ResourceKey="ThemeBackgroundBrush"/>
+            <ControlTheme x:Key="{x:Type modal:ModalWindowHeader}"
+                          TargetType="modal:ModalWindowHeader">
                 <Setter Property="Template">
                     <ControlTemplate>
                         <Panel>
                             <!--Title Text-->
                             <StackPanel HorizontalAlignment="Center"
                                         VerticalAlignment="Top"
-                                        Margin="{DynamicResource ConsoloniaDialogWindowBorderMargin}"
+                                        Margin="{DynamicResource ConsoloniaModalWindowBorderMargin}"
                                         ZIndex="10"
                                         Orientation="Horizontal">
                                 <brushes:SymbolsControl Text=" "
@@ -32,7 +32,7 @@
                             <StackPanel Orientation="Horizontal"
                                         ZIndex="10"
                                         VerticalAlignment="Top"
-                                        Margin="{DynamicResource ConsoloniaDialogWindowBorderMargin}"
+                                        Margin="{DynamicResource ConsoloniaModalWindowBorderMargin}"
                                         IsVisible="{TemplateBinding IsCloseButtonVisible}">
                                 <StackPanel.Styles>
                                     <Style Selector="Button">
@@ -55,23 +55,23 @@
                                                             Text="]" />
                                     <Button Content="■"
                                             x:Name="PART_CloseButton"
-                                            Command="{Binding Path=CloseClick, RelativeSource={RelativeSource AncestorType=dialog:DialogWindow}}" />
+                                            Command="{Binding Path=CloseClick, RelativeSource={RelativeSource AncestorType=modal:ModalWindow}}" />
                                 </DockPanel>
                             </StackPanel>
                         </Panel>
                     </ControlTemplate>
                 </Setter>
             </ControlTheme>
-            <ControlTheme x:Key="{x:Type dialog:DialogWindow}"
-                          TargetType="dialog:DialogWindow"
-                          BasedOn="{StaticResource {x:Type dialog:DialogWindow}}">
+            <ControlTheme x:Key="{x:Type modal:ModalWindow}"
+                          TargetType="modal:ModalWindow"
+                          BasedOn="{StaticResource {x:Type modal:ModalWindow}}">
                 <ControlTheme.Resources>
-                    <brushes:LineBrush x:Key="DialogWindowBorderBrush"
+                    <brushes:LineBrush x:Key="ModalWindowBorderBrush"
                                        LineStyle="DoubleLine"
                                        Brush="{StaticResource ThemeBorderBrush}" />
                 </ControlTheme.Resources>
                 <Setter Property="BorderBrush"
-                        Value="{StaticResource DialogWindowBorderBrush}" />
+                        Value="{StaticResource ModalWindowBorderBrush}" />
             </ControlTheme>
         </ResourceDictionary>
     </Styles.Resources>

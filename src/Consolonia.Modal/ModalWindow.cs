@@ -14,30 +14,30 @@ using Avalonia.VisualTree;
 namespace Consolonia.Modal
 {
     [TemplatePart("PART_ContentPresenter", typeof(ContentPresenter))]
-    public class DialogWindow : ContentControl
+    public class ModalWindow : ContentControl
     {
-        protected override Type StyleKeyOverride => typeof(DialogWindow);
+        protected override Type StyleKeyOverride => typeof(ModalWindow);
 
-        public static readonly DirectProperty<DialogWindow, Size> ContentSizeProperty =
-            AvaloniaProperty.RegisterDirect<DialogWindow, Size>(nameof(ContentSize), window => window.ContentSize);
+        public static readonly DirectProperty<ModalWindow, Size> ContentSizeProperty =
+            AvaloniaProperty.RegisterDirect<ModalWindow, Size>(nameof(ContentSize), window => window.ContentSize);
 
-        public static readonly StyledProperty<string> TitleProperty = Window.TitleProperty.AddOwner<DialogWindow>();
-        public static readonly StyledProperty<object> IconProperty = AvaloniaProperty.Register<DialogWindow, object>(nameof(Icon));
+        public static readonly StyledProperty<string> TitleProperty = Window.TitleProperty.AddOwner<ModalWindow>();
+        public static readonly StyledProperty<object> IconProperty = AvaloniaProperty.Register<ModalWindow, object>(nameof(Icon));
 
         public static readonly StyledProperty<bool> IsCloseButtonVisibleProperty =
-            AvaloniaProperty.Register<DialogWindow, bool>(nameof(IsCloseButtonVisible), true);
+            AvaloniaProperty.Register<ModalWindow, bool>(nameof(IsCloseButtonVisible), true);
 
         private Size _contentSize;
         private ContentPresenter _partContentPresenter;
 
         private TaskCompletionSource _taskCompletionSource;
 
-        static DialogWindow()
+        static ModalWindow()
         {
-            TitleProperty.OverrideDefaultValue<DialogWindow>(string.Empty);
+            TitleProperty.OverrideDefaultValue<ModalWindow>(string.Empty);
         }
 
-        public DialogWindow()
+        public ModalWindow()
         {
             KeyDown += InputElement_OnKeyDown;
         }
@@ -74,7 +74,7 @@ namespace Consolonia.Modal
         public void CloseClick()
         {
             if (CancelOnEscape)
-                CloseDialog();
+                CloseModal();
         }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -92,42 +92,42 @@ namespace Consolonia.Modal
             return arrangeOverride;
         }
 
-        private void ShowDialogInternal(Visual parent)
+        private void ShowModalInternal(Visual parent)
         {
-            DialogHost dialogHost = GetDialogHost(parent);
-            dialogHost.OpenInternal(this);
+            ModalHost modalHost = GetModalHost(parent);
+            modalHost.OpenInternal(this);
         }
 
         // ReSharper disable once VirtualMemberNeverOverridden.Global overriden in other packages, why resharper suggests this?
-        public virtual void CloseDialog()
+        public virtual void CloseModal()
         {
-            DialogHost dialogHost = GetDialogHost(this);
-            dialogHost.PopInternal(this);
+            ModalHost modalHost = GetModalHost(this);
+            modalHost.PopInternal(this);
             _taskCompletionSource.SetResult();
         }
 
-        public Task ShowDialogAsync(Control parent)
+        public Task ShowModalAsync(Control parent)
         {
             if (_taskCompletionSource != null)
                 throw new NotImplementedException();
 
             _taskCompletionSource = new TaskCompletionSource();
-            ShowDialogInternal(parent);
+            ShowModalInternal(parent);
             return _taskCompletionSource.Task;
         }
 
-        private static DialogHost GetDialogHost(Visual parent)
+        private static ModalHost GetModalHost(Visual parent)
         {
             var window = parent.FindAncestorOfType<Window>(true);
-            DialogHost dialogHost = window!.GetValue(DialogHost.DialogHostProperty);
-            return dialogHost;
+            ModalHost modalHost = window!.GetValue(ModalHost.ModalHostProperty);
+            return modalHost;
         }
 
         private void InputElement_OnKeyDown(object sender, KeyEventArgs e)
         {
             if (!CancelOnEscape) return;
             if (e.Key is not (Key.Cancel or Key.Escape)) return;
-            CloseDialog();
+            CloseModal();
             e.Handled = true;
         }
     }

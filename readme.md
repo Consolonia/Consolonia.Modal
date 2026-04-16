@@ -1,22 +1,19 @@
 ![logo](https://raw.githubusercontent.com/tomlm/ConsoloniaContent/main/Logo.png)
 
-# Consolonia.AvaloniaEdit
-This package contains theme resources for using **AvaloniaEdit** in [Consolonia](https://github.com/jinek/consolonia) 
-applications.
-
-![avalonia editor](https://raw.githubusercontent.com/tomlm/ConsoloniaContent/main/AvaloniaEdit.gif)
+# Consolonia.Modal
+`Consolonia.Modal` provides a mechanism for displaying modal dialogs in [Consolonia](https://github.com/jinek/consolonia) applications.
 
 # Usage
-To enable AvaloniaEdit in your application:
-1. Add **Avalonia.AvaloniaEdit** NuGet package
-1. Add **Consolonia.AvaloniaEdit** NuGet package
-1. Add ```avares://Consolonia.AvaloniaEdit/Theme.axaml``` to your application styles.
+To enable modal support in your application:
+1. Add **Consolonia.Modal** NuGet package
+2. Include the **ModalTheme** in your **App.axaml**:
 
 ```xaml
     <Application.Styles>
-        <console:ModernTheme />
-        <StyleInclude Source="avares://Consolonia.AvaloniaEdit/Theme.axaml" />
+        <console:ModernTheme /> <!-- or TurboVisionTheme -->
+        <modal:ModalTheme xmlns:modal="clr-namespace:Consolonia.Modal;assembly=Consolonia.Modal" />
     </Application.Styles>
-
 ```
+
+For more details, see the [Consolonia.Modal documentation](src/Consolonia.Modal/readme.md).
 

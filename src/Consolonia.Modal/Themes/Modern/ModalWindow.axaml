@@ -1,22 +1,22 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:dialog="clr-namespace:Consolonia.Modal"
+        xmlns:modal="clr-namespace:Consolonia.Modal"
         xmlns:brushes="https://github.com/consolonia">
-    <Style Selector="Border.DialogWindowBorder">
+    <Style Selector="Border.ModalWindowBorder">
         <Setter Property="Padding"
                 Value="0,1,0,0" />
     </Style>
-    <StyleInclude Source="avares://Consolonia.Modal/Themes/DialogWindowTemplate.axaml" />
+    <StyleInclude Source="avares://Consolonia.Modal/Themes/ModalWindowTemplate.axaml" />
     <Styles.Resources>
         <ResourceDictionary>
-            <SolidColorBrush x:Key="DialogWindowOuterBorderBackgroundBrush"
+            <SolidColorBrush x:Key="ModalWindowOuterBorderBackgroundBrush"
                              Color="Transparent" />
-            <brushes:LineBrush x:Key="DialogWindowBorderBrush"
+            <brushes:LineBrush x:Key="ModalWindowBorderBrush"
                                LineStyle="Edge"
                                Brush="{DynamicResource ThemeBorderBrush}" />
             
-            <ControlTheme x:Key="{x:Type dialog:DialogWindowHeader}"
-                          TargetType="dialog:DialogWindowHeader">
+            <ControlTheme x:Key="{x:Type modal:ModalWindowHeader}"
+                          TargetType="modal:ModalWindowHeader">
                 <Setter Property="Template">
                     <ControlTemplate>
                         <Panel Margin="2,1,2,0" 
@@ -52,18 +52,18 @@
                                 </StackPanel.Styles>
                                 <Button Content="{DynamicResource ThemeCloseSymbol}"
                                         x:Name="PART_CloseButton"
-                                        Command="{Binding Path=CloseClick, RelativeSource={RelativeSource AncestorType=dialog:DialogWindow}}" />
+                                        Command="{Binding Path=CloseClick, RelativeSource={RelativeSource AncestorType=modal:ModalWindow}}" />
                             </StackPanel>
                         </Panel>
                     </ControlTemplate>
                 </Setter>
             </ControlTheme>
             
-            <ControlTheme x:Key="{x:Type dialog:DialogWindow}"
-                          TargetType="dialog:DialogWindow"
-                          BasedOn="{StaticResource {x:Type dialog:DialogWindow}}">
+            <ControlTheme x:Key="{x:Type modal:ModalWindow}"
+                          TargetType="modal:ModalWindow"
+                          BasedOn="{StaticResource {x:Type modal:ModalWindow}}">
                 <Setter Property="BorderBrush"
-                        Value="{StaticResource DialogWindowBorderBrush}" />
+                        Value="{StaticResource ModalWindowBorderBrush}" />
                 <Style Selector="^ /template/ Border#PART_SHADOW">
                     <Setter Property="IsVisible"
                             Value="False" />
