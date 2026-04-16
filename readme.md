@@ -3,6 +3,9 @@
 # Consolonia.Modal
 `Consolonia.Modal` provides a mechanism for displaying modal dialogs in [Consolonia](https://github.com/jinek/consolonia) applications.
 
+<img width="1029" height="634" alt="image" src="https://github.com/user-attachments/assets/af8e8bae-3e36-4c16-8c88-45776c00634f" />
+
+
 # Usage
 To enable modal support in your application:
 1. Add **Consolonia.Modal** NuGet package
