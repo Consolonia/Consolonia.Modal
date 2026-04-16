@@ -3,7 +3,7 @@
              xmlns:console="https://github.com/jinek/consolonia"
              xmlns:modal="clr-namespace:Consolonia.Modal;assembly=Consolonia.Modal"
              x:Class="Consolonia.Sandbox.App"
-             RequestedThemeVariant="Default">
+             RequestedThemeVariant="Dark">
     <Application.Styles>
         <console:ModernTheme />
         <!--<console:TurboVisionTheme />-->

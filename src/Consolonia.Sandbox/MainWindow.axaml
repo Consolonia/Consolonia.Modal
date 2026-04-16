@@ -3,6 +3,25 @@
         Title="Sandbox Modal Demo"
         x:Class="Consolonia.Sandbox.MainWindow">
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="1">
+        <TextBlock xml:space="preserve" TextWrapping="Wrap">
+Consolonia.Modal provides a mechanism for displaying modal dialogs in Consolonia applications.
+Features:
+- Modal Overlay: Shades the background to prevent interaction.
+- Integration: Use ModalTheme to enable modal support for all windows.
+- Customization: Control title, icon, close button visibility.
+- Keyboard: Supports Escape key for closing (CancelOnEscape).
+- Layout: Position modals with HorizontalAlignment and VerticalAlignment.
+- Themes: Supports Modern and TurboVision themes.
+
+Detailed Layout:
+- First Child: Its size determines the modal box size.
+- Stretch: First child must have HorizontalAlignment/VerticalAlignment as Stretch.
+- Positioning: Set Margin, Alignment, or size on ModalWindow to position the frame.
+
+Mechanics:
+- ModalHost: Every Window gets a ModalHost when ModalTheme is active.
+- ShowModalAsync: Use this method from code-behind to display the modal.
+</TextBlock>
         <TextBlock Text="Welcome to Consolonia Modal Sandbox!" HorizontalAlignment="Center"/>
         <Button Content="Show Modal" Click="OnShowModalClick" HorizontalAlignment="Center"/>
     </StackPanel>
