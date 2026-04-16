@@ -14,7 +14,7 @@ namespace Consolonia.Modal
     // ReSharper disable once PartialTypeWithSinglePart
     public partial class ModalWrap : UserControl
     {
-        public readonly ContentPresenter FoundContentPresenter;
+        internal readonly ContentPresenter FoundContentPresenter;
         private IDisposable _disposable;
 
         public ModalWrap()
