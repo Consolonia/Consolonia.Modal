@@ -16,13 +16,13 @@ namespace Consolonia.Modal
     [TemplatePart("PART_ContentPresenter", typeof(ContentPresenter))]
     public class ModalWindow : ContentControl
     {
-        protected override Type StyleKeyOverride => typeof(ModalWindow);
-
         public static readonly DirectProperty<ModalWindow, Size> ContentSizeProperty =
             AvaloniaProperty.RegisterDirect<ModalWindow, Size>(nameof(ContentSize), window => window.ContentSize);
 
         public static readonly StyledProperty<string> TitleProperty = Window.TitleProperty.AddOwner<ModalWindow>();
-        public static readonly StyledProperty<object> IconProperty = AvaloniaProperty.Register<ModalWindow, object>(nameof(Icon));
+
+        public static readonly StyledProperty<object> IconProperty =
+            AvaloniaProperty.Register<ModalWindow, object>(nameof(Icon));
 
         public static readonly StyledProperty<bool> IsCloseButtonVisibleProperty =
             AvaloniaProperty.Register<ModalWindow, bool>(nameof(IsCloseButtonVisible), true);
@@ -41,6 +41,8 @@ namespace Consolonia.Modal
         {
             KeyDown += InputElement_OnKeyDown;
         }
+
+        protected override Type StyleKeyOverride => typeof(ModalWindow);
 
         public Size ContentSize
         {

@@ -10,7 +10,7 @@ namespace Consolonia.Modal
             IncludeStyle(new Uri("avares://Consolonia.Modal/Themes/ModalHost.axaml"));
 
             switch (family)
-            { 
+            {
                 case TurboVisionThemeKey:
                     IncludeStyle(new Uri("avares://Consolonia.Modal/Themes/TurboVision/ModalWindow.axaml"));
                     break;

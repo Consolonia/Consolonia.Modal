@@ -14,12 +14,12 @@
             <brushes:LineBrush x:Key="ModalWindowBorderBrush"
                                LineStyle="Edge"
                                Brush="{DynamicResource ThemeBorderBrush}" />
-            
+
             <ControlTheme x:Key="{x:Type modal:ModalWindowHeader}"
                           TargetType="modal:ModalWindowHeader">
                 <Setter Property="Template">
                     <ControlTemplate>
-                        <Panel Margin="2,1,2,0" 
+                        <Panel Margin="2,1,2,0"
                                Background="{DynamicResource ThemeAlternativeBackgroundBrush}">
                             <!--Title and Icon-->
                             <StackPanel HorizontalAlignment="Left"
@@ -58,7 +58,7 @@
                     </ControlTemplate>
                 </Setter>
             </ControlTheme>
-            
+
             <ControlTheme x:Key="{x:Type modal:ModalWindow}"
                           TargetType="modal:ModalWindow"
                           BasedOn="{StaticResource {x:Type modal:ModalWindow}}">

@@ -8,7 +8,8 @@
                    VerticalAlignment="Center"
                    Margin="2">
     <Grid>
-        <StackPanel Spacing="1" Margin="1">
+        <StackPanel Spacing="1"
+                    Margin="1">
             <TextBlock Text="This is a modal dialog in Consolonia!" />
             <TextBlock Text="Size is determined by this StackPanel." />
             <Button Content="Close"

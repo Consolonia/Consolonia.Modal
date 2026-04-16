@@ -2,8 +2,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Sandbox Modal Demo"
         x:Class="Consolonia.Sandbox.MainWindow">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="1">
-        <TextBlock xml:space="preserve" TextWrapping="Wrap">
+    <StackPanel HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="1">
+        <TextBlock xml:space="preserve"
+                   TextWrapping="Wrap">
 Consolonia.Modal provides a mechanism for displaying modal dialogs in Consolonia applications.
 Features:
 - Modal Overlay: Shades the background to prevent interaction.
@@ -22,7 +25,10 @@ Mechanics:
 - ModalHost: Every Window gets a ModalHost when ModalTheme is active.
 - ShowModalAsync: Use this method from code-behind to display the modal.
 </TextBlock>
-        <TextBlock Text="Welcome to Consolonia Modal Sandbox!" HorizontalAlignment="Center"/>
-        <Button Content="Show Modal" Click="OnShowModalClick" HorizontalAlignment="Center"/>
+        <TextBlock Text="Welcome to Consolonia Modal Sandbox!"
+                   HorizontalAlignment="Center" />
+        <Button Content="Show Modal"
+                Click="OnShowModalClick"
+                HorizontalAlignment="Center" />
     </StackPanel>
 </Window>

@@ -5,7 +5,8 @@
     <StyleInclude Source="avares://Consolonia.Modal/Themes/ModalWindowTemplate.axaml" />
     <Styles.Resources>
         <ResourceDictionary>
-            <StaticResource x:Key="ModalWindowOuterBorderBackgroundBrush" ResourceKey="ThemeBackgroundBrush"/>
+            <StaticResource x:Key="ModalWindowOuterBorderBackgroundBrush"
+                            ResourceKey="ThemeBackgroundBrush" />
             <ControlTheme x:Key="{x:Type modal:ModalWindowHeader}"
                           TargetType="modal:ModalWindowHeader">
                 <Setter Property="Template">

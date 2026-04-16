@@ -7,6 +7,7 @@ using Avalonia.Input;
 using Avalonia.Markup.Xaml;
 using Avalonia.Reactive;
 using Avalonia.VisualTree;
+
 namespace Consolonia.Modal
 {
     [SuppressMessage("Usage", "PartialTypeWithSinglePart",
@@ -26,13 +27,12 @@ namespace Consolonia.Modal
             {
                 var parentWindow = this.FindAncestorOfType<Window>();
                 _disposable = parentWindow!.GetPropertyChangedObservable(TopLevel.ClientSizeProperty).Subscribe(
-                    new AnonymousObserver<AvaloniaPropertyChangedEventArgs>(
-                        args =>
-                        {
-                            var newSize = (Size)args.NewValue!;
+                    new AnonymousObserver<AvaloniaPropertyChangedEventArgs>(args =>
+                    {
+                        var newSize = (Size)args.NewValue!;
 
-                            SetNewSize(newSize);
-                        }));
+                        SetNewSize(newSize);
+                    }));
                 SetNewSize(parentWindow!.ClientSize);
             };
             DetachedFromLogicalTree += (_, _) => { _disposable.Dispose(); };
@@ -61,9 +61,9 @@ namespace Consolonia.Modal
         }
 
         // ReSharper disable once UnusedMember.Local Example of usage for further (when mouse support introduced for example)
-        #pragma warning disable IDE0051
+#pragma warning disable IDE0051
         private void CloseModal()
-        #pragma warning restore IDE0051
+#pragma warning restore IDE0051
         {
             ((ModalWindow)FoundContentPresenter!.Content!)!.CloseModal();
         }

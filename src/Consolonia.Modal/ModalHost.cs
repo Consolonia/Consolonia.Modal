@@ -17,9 +17,6 @@ namespace Consolonia.Modal
     {
         public static readonly AttachedProperty<bool> IsModalHostProperty =
             AvaloniaProperty.RegisterAttached<Control, bool>("IsModalHost", typeof(ModalHost));
-        
-        public static bool GetIsModalHost(Control control) => control.GetValue(IsModalHostProperty);
-        public static void SetIsModalHost(Control control, bool value) => control.SetValue(IsModalHostProperty, value);
 
         internal static readonly AttachedProperty<ModalHost> ModalHostProperty =
             AvaloniaProperty.RegisterAttached<Control, ModalHost>("ModalHost", typeof(ModalHost));
@@ -40,6 +37,16 @@ namespace Consolonia.Modal
         private ModalHost(Window window)
         {
             _window = window;
+        }
+
+        public static bool GetIsModalHost(Control control)
+        {
+            return control.GetValue(IsModalHostProperty);
+        }
+
+        public static void SetIsModalHost(Control control, bool value)
+        {
+            control.SetValue(IsModalHostProperty, value);
         }
 
         public void OpenInternal(ModalWindow modalWindow)
